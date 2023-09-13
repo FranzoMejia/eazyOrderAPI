@@ -2,6 +2,7 @@ package com.omejia.controller;
 
 import java.util.List;
 
+import com.omejia.dto.ClientDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,7 +29,7 @@ public class ClientController {
 	
 	@GetMapping
 	public List<Client> getAllClients(){
-		return (List<Client>) clientRepo.findByactive(true);
+		return clientRepo.findByactive(true);
 	}
 	
 	@DeleteMapping("/{id}")
@@ -39,7 +40,15 @@ public class ClientController {
 	}
 	
 	@PostMapping
-	public void addClient(@RequestBody Client client){
+	public void addClient(@RequestBody ClientDTO clientDto){
+		Client client = new Client();
+		client.setActive(true);
+		client.setId(clientDto.getId());
+		client.setAddresses(clientDto.getAddresses());
+		client.setName(clientDto.getName());
+		client.setPhone(clientDto.getPhone());
+
+
 		 clientRepo.save(client);
 	}
 	

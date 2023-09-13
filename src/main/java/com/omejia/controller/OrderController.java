@@ -4,6 +4,8 @@ import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import com.omejia.dto.OrderDTO;
+import com.omejia.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,9 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.omejia.model.Client;
-import com.omejia.model.Order;
-import com.omejia.model.Status;
 import com.omejia.repository.OrderRepository;
 
 @RestController
@@ -32,12 +31,12 @@ public class OrderController {
 	
 	@GetMapping("/active")
 	public List<Order> getActiveOrders(){
-		return (List<Order>) orderRepo.findByactive(true);
+		return orderRepo.findByactive(true);
 	}
 	
 	@GetMapping("/inactive")
 	public List<Order> getInactiveOrders(){
-		return (List<Order>) orderRepo.findByactive(false);
+		return orderRepo.findByactive(false);
 	}
 	
 	@GetMapping("/{status}")
@@ -51,15 +50,35 @@ public class OrderController {
 	}
 	
 	@PostMapping
-	public void saveOrder(@RequestBody Order order) {
+	public void saveOrder(@RequestBody OrderDTO orderDTO) {
 		
 		Timestamp now = Timestamp.valueOf(LocalDateTime.now());
-		switch(order.getStatus())
+		Order order = new Order();
+		order.setOrderProduct(orderDTO.getOrderProduct());
+		order.setId(orderDTO.getId());
+		order.setActive(orderDTO.isActive());
+		order.setAddresses(orderDTO.getAddresses());
+		order.setClient(orderDTO.getClient());
+		order.setComments(orderDTO.getComments());
+		order.setStatus(orderDTO.getStatus());
+		order.setDeliveredBy(orderDTO.getDeliveredBy());
+		order.setPrice(orderDTO.getPrice());
+		order.setPaidMethod(orderDTO.getPaidMethod());
+		order.setPaidTo(orderDTO.getPaidTo());
+		order.setCreatedDt(orderDTO.getCreatedDt());
+		order.setPreparedDt(orderDTO.getPreparedDt());
+		order.setSendDt(orderDTO.getSendDt());
+		order.setDeliveredDt(orderDTO.getDeliveredDt());
+		order.setClosedDt(orderDTO.getClosedDt());
+		order.setCancelledDt(orderDTO.getCancelledDt());
+
+
+
+		switch(orderDTO.getStatus())
 		{
 		case CREATED:
 			order.setCreatedDt(now);
 			break;
-			
 		case PREPARED:
 			order.setPreparedDt(now);
 			break;

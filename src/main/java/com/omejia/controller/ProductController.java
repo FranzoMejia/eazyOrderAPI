@@ -1,8 +1,10 @@
 package com.omejia.controller;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
+import com.omejia.dto.ProductDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,13 +32,17 @@ public class ProductController {
 		if(products!=null)
 			return  products;
 		else
-			return null;
+			return Collections.emptyList();
 	}
 	
 	@PostMapping("/add")
-	public  Product addProduct(@RequestBody Product product) {
-		
-		return productRepo.save(product);
+	public  Product addProduct(@RequestBody ProductDTO product) {
+		Product p = new Product();
+		p.setActive(true);
+		p.setDescription(product.getDescription());
+		p.setName(product.getName());
+		p.setPrice(product.getPrice());
+		return productRepo.save(p);
 		
 	}
 	
@@ -44,7 +50,7 @@ public class ProductController {
 	public  ResponseEntity<Integer> deleteProduct(@PathVariable Integer id) {
 
 		 Optional<Product> toDelete = productRepo.findById(id);
-		 if(toDelete != null)
+		 if(toDelete.isPresent())
 		 {
 			 toDelete.get().setActive(false);
 			 productRepo.save(toDelete.get());

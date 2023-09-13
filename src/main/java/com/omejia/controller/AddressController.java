@@ -2,6 +2,7 @@ package com.omejia.controller;
 
 import java.util.List;
 
+import com.omejia.dto.AddressDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -39,8 +40,11 @@ public class AddressController {
 	}
 	
 	@PostMapping()
-	public void addAddress(@RequestBody Address client){
-		addressRepo.save(client);
+	public void addAddress(@RequestBody AddressDTO addressDto){
+		Address address = new Address();
+		address.setName(addressDto.getName());
+		address.setUrl(addressDto.getUrl());
+		addressRepo.save(address);
 	}
 	
 	
