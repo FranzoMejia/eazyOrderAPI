@@ -1,0 +1,4 @@
+com\omejia\model\AccountsTest.class
+com\omejia\dto\AddressDTOTest.class
+com\omejia\springsecuritybasic\SpringsecuritybasicApplicationTests.class
+com\omejia\springsecuritybasic\ClientTest.class

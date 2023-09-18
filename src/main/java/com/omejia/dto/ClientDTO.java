@@ -16,6 +16,7 @@ public class ClientDTO {
 
     private boolean active=true;
 
-    private List<Address> addresses;
+    private List<Address
+            > addresses;
 
 }

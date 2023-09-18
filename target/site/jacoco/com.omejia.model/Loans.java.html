@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Loans.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">springsecuritybasic</a> &gt; <a href="index.source.html" class="el_package">com.omejia.model</a> &gt; <span class="el_source">Loans.java</span></div><h1>Loans.java</h1><pre class="source lang-java linenums">package com.omejia.model;
+
+import java.sql.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name=&quot;loans&quot;)
+<span class="fc" id="L14">public class Loans {</span>
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = &quot;loan_number&quot;)
+	private int loanNumber;
+	
+	@Column(name = &quot;customer_id&quot;)
+	private int customerId;
+	
+	@Column(name=&quot;start_dt&quot;)
+	private Date startDt;
+	
+	@Column(name = &quot;loan_type&quot;)
+	private String loanType;
+	
+	@Column(name = &quot;total_loan&quot;)
+	private int totalLoan;
+	
+	@Column(name = &quot;amount_paid&quot;)
+	private int amountPaid;
+	
+	@Column(name = &quot;outstanding_amount&quot;)
+	private int outstandingAmount;
+	
+	@Column(name = &quot;create_dt&quot;)
+	private String createDt;
+
+	public int getLoanNumber() {
+<span class="nc" id="L43">		return loanNumber;</span>
+	}
+
+	public void setLoanNumber(int loanNumber) {
+<span class="nc" id="L47">		this.loanNumber = loanNumber;</span>
+<span class="nc" id="L48">	}</span>
+
+	public int getCustomerId() {
+<span class="nc" id="L51">		return customerId;</span>
+	}
+
+	public void setCustomerId(int customerId) {
+<span class="nc" id="L55">		this.customerId = customerId;</span>
+<span class="nc" id="L56">	}</span>
+
+	public Date getStartDt() {
+<span class="nc" id="L59">		return startDt;</span>
+	}
+
+	public void setStartDt(Date startDt) {
+<span class="nc" id="L63">		this.startDt = startDt;</span>
+<span class="nc" id="L64">	}</span>
+
+	public String getLoanType() {
+<span class="nc" id="L67">		return loanType;</span>
+	}
+
+	public void setLoanType(String loanType) {
+<span class="nc" id="L71">		this.loanType = loanType;</span>
+<span class="nc" id="L72">	}</span>
+
+	public int getTotalLoan() {
+<span class="nc" id="L75">		return totalLoan;</span>
+	}
+
+	public void setTotalLoan(int totalLoan) {
+<span class="nc" id="L79">		this.totalLoan = totalLoan;</span>
+<span class="nc" id="L80">	}</span>
+
+	public int getAmountPaid() {
+<span class="nc" id="L83">		return amountPaid;</span>
+	}
+
+	public void setAmountPaid(int amountPaid) {
+<span class="nc" id="L87">		this.amountPaid = amountPaid;</span>
+<span class="nc" id="L88">	}</span>
+
+	public int getOutstandingAmount() {
+<span class="nc" id="L91">		return outstandingAmount;</span>
+	}
+
+	public void setOutstandingAmount(int outstandingAmount) {
+<span class="nc" id="L95">		this.outstandingAmount = outstandingAmount;</span>
+<span class="nc" id="L96">	}</span>
+
+	public String getCreateDt() {
+<span class="nc" id="L99">		return createDt;</span>
+	}
+
+	public void setCreateDt(String createDt) {
+<span class="nc" id="L103">		this.createDt = createDt;</span>
+<span class="nc" id="L104">	}</span>
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

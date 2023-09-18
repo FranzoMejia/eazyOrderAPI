@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Product.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">springsecuritybasic</a> &gt; <a href="index.source.html" class="el_package">com.omejia.model</a> &gt; <span class="el_source">Product.java</span></div><h1>Product.java</h1><pre class="source lang-java linenums">package com.omejia.model;
+
+
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+
+
+@Entity
+@Table(name = &quot;product&quot;)
+<span class="fc" id="L16">public class Product {</span>
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = &quot;id&quot;)
+	private int id;
+	
+	@Column(name = &quot;Name&quot;)
+	private String name;
+	
+	@Column(name = &quot;Description&quot;)
+	private String description;
+	
+	@Column(name = &quot;price&quot;)
+	private String price;
+	
+<span class="fc" id="L32">	@Column(name = &quot;active&quot;)</span>
+	private boolean active=true;
+	
+	public int getId() {
+<span class="nc" id="L36">		return id;</span>
+	}
+
+	public void setId(int id) {
+<span class="nc" id="L40">		this.id = id;</span>
+<span class="nc" id="L41">	}</span>
+
+	public String getName() {
+<span class="nc" id="L44">		return name;</span>
+	}
+
+	public void setName(String name) {
+<span class="nc" id="L48">		this.name = name;</span>
+<span class="nc" id="L49">	}</span>
+
+	public String getDescription() {
+<span class="nc" id="L52">		return description;</span>
+	}
+
+	public void setDescription(String description) {
+<span class="nc" id="L56">		this.description = description;</span>
+<span class="nc" id="L57">	}</span>
+
+	public String getPrice() {
+<span class="nc" id="L60">		return price;</span>
+	}
+
+	public void setPrice(String price) {
+<span class="nc" id="L64">		this.price = price;</span>
+<span class="nc" id="L65">	}</span>
+
+	public boolean isActive() {
+<span class="nc" id="L68">		return active;</span>
+	}
+
+	public void setActive(boolean active) {
+<span class="nc" id="L72">		this.active = active;</span>
+<span class="nc" id="L73">	}</span>
+
+	
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

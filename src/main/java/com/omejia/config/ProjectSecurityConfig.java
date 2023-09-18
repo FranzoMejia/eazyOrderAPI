@@ -4,24 +4,18 @@ import java.util.Arrays;
 import java.util.Collections;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.sql.DataSource;
+
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
+
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
-import org.springframework.security.provisioning.JdbcUserDetailsManager;
+
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
-import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 
@@ -29,7 +23,7 @@ import com.omejia.filter.JWTTokenGeneratorFilter;
 import com.omejia.filter.JWTTokenValidatorFilter;
 import com.omejia.filter.AuthoritiesLoggingAfterFilter;
 import com.omejia.filter.AuthoritiesLoggingAtFilter;
-import com.omejia.filter.RequestValidationBeforeFilter;
+
 
 @Configuration
 public class ProjectSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -87,7 +81,7 @@ public class ProjectSecurityConfig extends WebSecurityConfigurerAdapter {
 		 * authenticated().antMatchers("/notices")
 		 * .permitAll().antMatchers("/contact").permitAll().antMatchers("/welcome").
 		 * permitAll().and().formLogin() .and().httpBasic();
-		 * 
+		 *
 		 *//**
 			 * Configuration to deny all the requests
 			 */
@@ -110,31 +104,31 @@ public class ProjectSecurityConfig extends WebSecurityConfigurerAdapter {
 	/*
 	 * @Override protected void configure(AuthenticationManagerBuilder auth) throws
 	 * Exception {
-	 * 
+	 *
 	 * auth.inMemoryAuthentication().withUser("admin").password("12345").authorities
 	 * ("admin").and(). withUser("user").password("12345").authorities("read").and()
 	 * .passwordEncoder(NoOpPasswordEncoder.getInstance());
-	 * 
-	 * 
-	 * 
+	 *
+	 *
+	 *
 	 * InMemoryUserDetailsManager userDetailsService = new
 	 * InMemoryUserDetailsManager(); UserDetails user =
 	 * User.withUsername("admin").password("12345").authorities("admin").build();
 	 * UserDetails user1
 	 * =User.withUsername("user").password("12345").authorities("read").build();
-	 * 
+	 *
 	 * userDetailsService.createUser(user); userDetailsService.createUser(user1);
 	 * auth.userDetailsService(userDetailsService);
-	 * 
-	 * 
-	 * 
-	 * 
-	 * 
-	 * 
-	 * 
-	 * 
-	 * 
-	 * 
+	 *
+	 *
+	 *
+	 *
+	 *
+	 *
+	 *
+	 *
+	 *
+	 *
 	 * }
 	 */
 
