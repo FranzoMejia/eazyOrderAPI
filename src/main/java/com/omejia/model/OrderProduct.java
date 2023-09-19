@@ -1,5 +1,8 @@
 package com.omejia.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,6 +14,8 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "orderproduct")
+@Getter
+@Setter
 public class OrderProduct {
 	
 
@@ -26,21 +31,6 @@ public class OrderProduct {
 	@JoinColumn(name="product_id")
 	private Product product;
 	
-	public Integer getQty() {
-		return qty;
-	}
-
-	public void setQty(Integer qty) {
-		this.qty = qty;
-	}
-
-	public Product getProduct() {
-		return product;
-	}
-
-	public void setProduct(Product product) {
-		this.product = product;
-	}
 
 	
 

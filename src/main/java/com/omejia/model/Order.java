@@ -1,6 +1,9 @@
 package com.omejia.model;
 
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -19,6 +22,8 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "orderdetail")
+@Getter
+@Setter
 public class Order {
 	
 	@Id
@@ -84,149 +89,7 @@ public class Order {
 	@Column(name = "active")
 	@Basic
 	private boolean active=true;
-	
-	
-	
-	public Timestamp getCreatedDt() {
-		return createdDt;
-	}
 
-	public void setCreatedDt(Timestamp createdDt) {
-		this.createdDt = createdDt;
-	}
-
-	public String getPaidMethod() {
-		return paidMethod;
-	}
-
-	public void setPaidMethod(String paidMethod) {
-		this.paidMethod = paidMethod;
-	}
-
-	public String getPaidTo() {
-		return paidTo;
-	}
-
-	public void setPaidTo(String paidTo) {
-		this.paidTo = paidTo;
-	}
-
-
-	
-	
-	
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getComments() {
-		return comments;
-	}
-
-	public void setComments(String comments) {
-		this.comments = comments;
-	}
-
-	public String getPrice() {
-		return price;
-	}
-
-	public void setPrice(String price) {
-		this.price = price;
-	}
-
-	public Address getAddresses() {
-		return addresses;
-	}
-
-	public void setAddresses(Address addresses) {
-		this.addresses = addresses;
-	}
-
-	public Status getStatus() {
-		return status;
-	}
-
-	public void setStatus(Status status) {
-		this.status = status;
-	}
-
-	public Client getClient() {
-		return client;
-	}
-
-	public void setClient(Client client) {
-		this.client = client;
-	}
-
-	public List<OrderProduct> getOrderProduct() {
-		return orderProduct;
-	}
-
-	public void setOrderProduct(List<OrderProduct> orderProduct) {
-		this.orderProduct = orderProduct;
-	}
-
-	public String getDeliveredBy() {
-		return deliveredBy;
-	}
-
-	public void setDeliveredBy(String deliveredBy) {
-		this.deliveredBy = deliveredBy;
-	}
-
-	public Timestamp getPreparedDt() {
-		return preparedDt;
-	}
-
-	public void setPreparedDt(Timestamp preparedDt) {
-		this.preparedDt = preparedDt;
-	}
-
-	public Timestamp getSendDt() {
-		return sendDt;
-	}
-
-	public void setSendDt(Timestamp sendDt) {
-		this.sendDt = sendDt;
-	}
-
-	public Timestamp getCancelledDt() {
-		return cancelledDt;
-	}
-
-	public void setCancelledDt(Timestamp cancelledDt) {
-		this.cancelledDt = cancelledDt;
-	}
-
-	public Timestamp getDeliveredDt() {
-		return deliveredDt;
-	}
-
-	public void setDeliveredDt(Timestamp deliveredDt) {
-		this.deliveredDt = deliveredDt;
-	}
-
-	public Timestamp getClosedDt() {
-		return closedDt;
-	}
-
-	public void setClosedDt(Timestamp closedDt) {
-		this.closedDt = closedDt;
-	}
-
-	public boolean isActive() {
-		return active;
-	}
-
-	public void setActive(boolean active) {
-		this.active = active;
-	}
 
 
 	

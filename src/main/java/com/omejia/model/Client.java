@@ -13,9 +13,17 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "client")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Client {
 	
 	@Id
@@ -39,69 +47,7 @@ public class Client {
 	private List<Address> addresses;
 
 
-	public int getId() {
-		return id;
-	}
 
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-
-	public String getName() {
-		return name;
-	}
-
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-
-	public String getPhone() {
-		return phone;
-	}
-
-
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-
-
-	public List<Address> getAddresses() {
-		return addresses;
-	}
-
-
-	public void setAddresses(List<Address> addresses) {
-		this.addresses = addresses;
-	}
-
-
-	public Client(int id, String name, String phone, List<Address> addresses,boolean active) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.phone = phone;
-		this.addresses = addresses;
-		this.active = active;
-	}
-
-
-	public Client() {
-		super();
-	}
-
-
-	public boolean isActive() {
-		return active;
-	}
-
-
-	public void setActive(boolean active) {
-		this.active = active;
-	}
 	
 	
 }
